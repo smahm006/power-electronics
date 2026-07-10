@@ -1,0 +1,42 @@
+#+TITLE: EE44 Lecture NN — TITLE
+#+DATE:
+#+FILETAGS: :ee44:TOPIC_TAG:
+#+VIDEO: https://www.youtube.com/watch?v=VIDEO_ID
+#+STARTUP: latexpreview
+
+* Key Concepts
+
+** Concept A
+
+** Concept B
+
+* Derivations
+
+** Derivation Name
+
+\begin{align}
+V &= IR
+\end{align}
+
+* Worked Examples
+
+** Example: DESCRIPTION
+
+*Given:* ...
+
+*Find:* ...
+
+*Solution:*
+
+* Questions & Gaps
+
+** TODO Revisit: ...
+
+* Summary
+
+- ...
+- ...
+
+* References
+
+- [[file:NN.org::*Heading][Lecture NN — Relevant heading]]

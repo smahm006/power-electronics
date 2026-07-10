@@ -1,0 +1,258 @@
+#+TITLE: EE44 Lecture 001 — Circuits Fundamentals: Definitions, graph properties, current & voltage, power & energy
+#+DATE: 2026-07-10
+#+FILETAGS: :ee44:current:voltage:energy:
+#+VIDEO: https://www.youtube.com/watch?v=i9WixHfiZPU&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z
+#+STARTUP: latexpreview
+* Key Concepts
+** Math vs Physics
+In Math any structure is valid as long as it is self consistent. In Physics the structure has to agree with experimental results to be consistent
+
+** Maxwell's Equations
+Everything that we do electrically is governed by these equations
+*** Gauss's Law (Electric)
+**** Integral form:
+
+Electric charge produces an electric field, and the flux of that field passing through any closed surface is proportional to the total charge contained within that surface.
+
+\begin{equation*}
+\oint_S \vec{E} \cdot \hat{n} \, da = \frac{q_{\text{enc}}}{\epsilon_0}
+\end{equation*}
+
+[[../figures/gauss_electric_integral.png]]
+
+***** The electric field
+The electric field is the electrical force per unit charge exerted on a charged object.
+\begin{equation*}
+\vec{e} \equiv \frac{\vec{f_e}}{q_0} \quad [\frac{n}{c}] \quad [\frac{V}{m}]
+\end{equation*}
+***** The dot product
+Symbols that are boded or have vector hats are vectors
+
+The dot product A . B represents the project of A onto the direction of B multiplied by the length of B. The project of A onto B is |A| cos\theta
+***** The unit normal vector
+The unit normal vector is a vector of length one pointing in the direction perpendicular to the surface.
+Note:
+\begin{equation*}
+\hat{n} \, da \equiv d\vec{a}
+\end{equation*}
+***** The component of E normal to a surface
+The dot product of the electric field and the unit normal vector represents the component of the elcetric field vector that is perpendicular to the surface under consideration.
+Since the length of n = 1, we can derive the following
+\begin{equation*}
+\vec{E} \cdot \hat{n} = |\vec{E}| |\hat{n}| cos\theta = |\vec{E}| cos\theta
+\end{equation*}
+Thus if \theta = 90 => E is parallel to the surface:
+\begin{equation*}
+\vec{E} \cdot \hat{n} = 0
+\end{equation*}
+And if \theta = 0 => E is perpendicular to the surface:
+\begin{equation*}
+\vec{E} \cdot \hat{n} = |\vec{E}
+\end{equation*}
+***** The surface integral
+The integral (sum of contributions of little piece of a function) of a scalar function or vector field over a surface.
+***** The flux of a vector field
+Flow is the movement of a quantity along a path. Flux is the rate of that flow through a specific unit area or boundary. It asks "How many particles pass through the membrane each second?"
+The flux is define as the product of the vector field magnitude perpendicular to a surface and the area of the surface:
+\begin{equation*}
+\Phi = |A| \cdot \hat{n} \times (\text{surface area})
+\end{equation*}
+For a non-uniform surface, you must sum the mini small scale areas leaving you with an integral
+\begin{equation*}
+\Phi = \oint_S \vec{A} \cdot \hat{n} \, da
+\end{equation*}
+But even though we say "rate flow of particles", the field does not flow. It is useful to thing of it as a flow but keep it purely as an intellectual concept. Rather you could say the flux is the net number of field lines going through a surface. If there are five field lines from top -> bottom and five from bottom to top, there is zero flux.
+\begin{equation*}
+\text{electric flux} (\Phi_E) \equiv net number of field lines penetrating the surface.
+\end{equation*}
+***** The enclosed charge
+Since any charge located outside of a surface produces an equal negative flux (inward) and positive flux (outward), the net flux is zero. This is why Gaus law has the enclosed charge on the right side of the equation.
+***** The permittivity of free space
+The permittivity of a material determines its response to an electric field. This permittivity changes based on material, frequency. At low frequencies, the permittivity of free space is also called the dielectric constant.
+
+The value of the vacuum permittivity in SI units is 8.85 x 10^-12
+
+**** Differential form:
+
+The electric field produced by electric charge diverges from positive charge and converges upon negative charge.
+Note the fundamental difference between the differential and integral form of Gauss's law; the differential form deals with the divergence of electric field which means flux applied to individual points whereas the integral form flux is over an area.
+
+\begin{equation*}
+\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_0}
+\end{equation*}
+
+[[../figures/gauss_electric_differential.png]]
+
+***** Nabla - the del operator
+The symbol represents a vector Differential operator. In general the del operator \nabla instructs you to take derivatives of the quantity in which the operator is acting.
+
+This is an instruction to take derivatives in three directions specifically
+\begin{equation*}
+\vec{\nabla} \equiv \hat{i}\frac{\partial}{\partial x} + \hat{j}\frac{\partial}{\partial y} + \hat{k}\frac{\partial}{\partial z}
+\end{equation*}
+
+There are three forms of derivatives you can take:
+- Divergence
+\begin{equation*} \vec{\nabla} \circ \end{equation*}
+
+And so the del dot on a vector A is
+\begin{equation*}
+\vec{\nabla} \cdot \vec{A} \equiv (\hat{i}\frac{\partial}{\partial x} + \hat{j}\frac{\partial}{\partial y} + \hat{k}\frac{\partial}{\partial z} ) \cdot ((\hat{i}A_x + (\hat{j}A_y + (\hat{k}A_z)
+\end{equation*}
+Which is the change in it's x-component along the x-axis plus the change in its y-componenent along the y-axis plus the change in its z-component along the z-axis
+- Curl
+\begin{equation*} \vec{\nabla} \times \end{equation*}
+- Gradient
+\begin{equation*} \vec{\nabla} \end{equation*}
+
+*** Gauss's Law (Magnetic)
+
+There are no magnetic monopoles (Only north or only south side) — magnetic field lines always form closed loops.
+
+Differential form:
+
+\begin{equation*}
+\nabla \cdot \vec{B} = 0
+\end{equation*}
+
+Integral form:
+
+\begin{equation*}
+\oint_S \vec{B} \cdot d\vec{A} = 0
+\end{equation*}
+*** Faraday's Law
+
+A changing magnetic field enclosed in a circuit induces an electric field.
+
+Differential form:
+
+\begin{equation*}
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+\end{equation*}
+
+Integral form:
+
+\begin{equation*}
+\oint_C \vec{E} \cdot d\vec{l} = -\frac{d}{dt} \int_S \vec{B} \cdot d\vec{A}
+\end{equation*}
+
+*** Ampère–Maxwell Law
+
+Currents and changing electric fields produce magnetic fields.
+
+Differential form:
+\begin{equation*}
+\nabla \times \vec{B} = \mu_0 \vec{J} + \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t}
+\end{equation*}
+
+Integral form:
+
+\begin{equation*}
+\oint_C \vec{B} \cdot d\vec{l} = \mu_0 I_{\text{enc}} + \mu_0 \epsilon_0 \frac{d}{dt} \int_S \vec{E} \cdot d\vec{A}
+\end{equation*}
+
+** Conservation of Charge
+Maxwell's equations imply conservation of charge and also give the formula for current!
+If you take the divergence of Ampere-Maxwell Law
+\begin{equation*}
+\vec{\nabla}(\nabla \times \vec{B}) = \mu_0 \vec{\nabla}\cdot\vec{J} + \mu_0 \epsilon_0 \vec{\nabla}\cdot\frac{\partial \vec{E}}{\partial t}
+\implies 0 = \mu_0 \vec{\nabla}\cdot\vec{J} + \mu_0 \epsilon_0 \vec{\nabla}\cdot\frac{\partial \vec{E}}{\partial t}
+\end{equation*}
+We know from Gauss's Law (Electric that)
+\begin{equation*}
+\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_0}
+\implies \frac{\vec{\nabla} \cdot \vec{E}}{\epsilon_0} = \rho
+\end{equation*}
+And we can plug that into our first equation
+\begin{equation*}
+0 = \mu_0 \vec{\nabla}\cdot\vec{J} + \mu_0 \vec{\nabla}\cdot\frac{\partial \vec{\rho}}{\partial t}
+\implies \mu_0 \vec{\nabla}\cdot\frac{\partial \vec{\rho}}{\partial t} = - \mu_0 \vec{\nabla}\cdot\vec{J}
+\implies \vec{\nabla}\cdot\frac{\partial \vec{\rho}}{\partial t} = - \vec{\nabla}\cdot\vec{J}
+\end{equation*}
+
+And this equation says that the rate of flow of current coming out of a system is proportional to the negative of the charge density loss over time. This basically means you cannot create or destroy charge which is the definition of the *Conservation of charge*
+** Relationship between system/circuit dimensions and wavelength
+Wavelength formula:
+\begin{equation*}
+\lambda = \frac{c}{f}
+\end{equation*}
+At 1 Hz, wavelength = 300,000,000m = 300,000km
+At 10 GHz, wavelegth = 0.03m = 3cm
+*** Lumped Circuits
+When D << \lambda (dimensions are way smaller than the wavelength). In this cases the electromagnetic wave propagated through the circuit is so fast that there is no lag or delay. We can assume here that the speed of light is basically infinity which means we assume things happen instantaneously.
+
+If we do this then we can simplify a lot of Maxwell's Equations. In Amperes Law, \mu\epsilon becomes 0 and if you take the divergence of both sides you are left with:
+\begin{equation*}
+\vec{\nabla}(\nabla \times \vec{B}) = \mu_0 \vec{\nabla}\cdot\vec{J} + \mu_0 \epsilon_0 \vec{\nabla}\cdot\frac{\partial \vec{E}}{\partial t}
+\implies \mu_0 \vec{\nabla}\cdot\vec{J} = 0
+\implies \vec{\nabla}\cdot\vec{J} = 0
+\end{equation*}
+Which means you get no charge accumulation on the nodes (more on this later on KCL). This also means we can assume the current going into an element is the same going out of the element.
+*** Distributed Circuits
+When D ~ \lambda (dimensions are comparable to the wavelength). In this case the electromagnetic wave is not so fast and things don't change instantaneously. This means that we might encounter a lag. If we want to measure voltage across a resistor we would have to ask at which part of the resistor do you want to measure as the voltage changes in the resistor itself.
+*** Optics
+When D >> \lambda (dimensions are much larger than the wavelength).
+** Basic Definitions
+- Element/Branches = Electrical Component in a circuit. Also called a branch if looking at ciruict mathematically as a network graph.
+- Leads = Elements have leads which are the physical wires coming out of the component. In a circuit, every lead must be connected to another lead to form a network.
+- Nodes = The connection point between two or more branches.
+- Loops = Any closed path made out of branches without passing through any node twice.
+- Mesh = Any loop that doesn't have another loop inside it. Essential Loops. Meshes look like window panes in a circuit.
+
+There is a known relationship between branches, nodes and meshes
+\begin{equation*}
+b = m + n - 1
+\end{equation*}
+** Series vs Parallel
+- Two elements are in series if they exclusively share a node.
+- Two elements are in series if they exclusively share the same pair (two) of nodes.
+** More Basics
+*** Charge
+- An electron has a charge of 1.6 x 10^-19 C
+- In lumped circuits we assume e = 0
+*** Current
+Current is the rate of flow of charge
+\begin{equation*}
+i = \frac{dq}{dt}\quad[\frac{C}{S} = A]
+\end{equation*}
+
+Current is measured by an Ammeter, and the ammeter must be connected in series. The Ammeter has to have very little resistance to not impede the flow of charge.
+*** Voltage
+The work required to move a charge between two points. It requires work because the Electric field between the two points will resist you trying to move the charge. The larger the charge the harder it will be to move it.
+\begin{equation*}
+v_ab = \frac{dW_ab}{dq}\quad[\frac{J}{C} = V]
+\end{equation*}
+
+V_ab means the work required to move a charge from point 'a' to point 'b'. On an element, V_ab would mean a has the + positive sign and b the negative. V_ba would mean b has the + positive sign and a the negative.
+*** Power
+\begin{equation*}
+P = \frac{dW}{dt}
+\equiv \frac{dW}{dq} \cdot \frac{dq}{dt}
+\equiv V \cdot I
+\end{equation*}
+
+- If Power is positive, it means the element is absorbing energy and if it is negative it is generating energy.
+- In a lumped circuit, the net power is 0 (conservation of energy). In non-lumped energy would be leaked via radiation.
+
+* Worked Examples
+
+** Example: DESCRIPTION
+
+*Given:* ...
+
+*Find:* ...
+
+*Solution:*
+
+* Questions & Gaps
+
+** TODO Revisit: ...
+
+* Summary
+
+- ...
+- ...
+
+* References
+
+- [[file:NN.org::*Heading][Lecture NN — Relevant heading]]
