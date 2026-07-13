@@ -6,7 +6,6 @@
 * Key Concepts
 ** Math vs Physics
 In Math any structure is valid as long as it is self consistent. In Physics the structure has to agree with experimental results to be consistent
-
 ** Maxwell's Equations
 Everything that we do electrically is governed by these equations
 *** Gauss's Law (Electric)
@@ -206,7 +205,7 @@ b = m + n - 1
 ** Series vs Parallel
 - Two elements are in series if they exclusively share a node.
 - Two elements are in series if they exclusively share the same pair (two) of nodes.
-** More Basics
+** More Basic Definitions
 *** Charge
 - An electron has a charge of 1.6 x 10^-19 C
 - In lumped circuits we assume e = 0
@@ -218,7 +217,7 @@ i = \frac{dq}{dt}\quad[\frac{C}{S} = A]
 
 Current is measured by an Ammeter, and the ammeter must be connected in series. The Ammeter has to have very little resistance to not impede the flow of charge.
 *** Voltage
-The work required to move a charge between two points. It requires work because the Electric field between the two points will resist you trying to move the charge. The larger the charge the harder it will be to move it.
+The work required to move a charge between two points. It requires work because the Electric field between the two points will resist you trying to move the charge. The larger the charge the harder it will be to move it. We take a very small charge for test as to not disturb the electric field.
 \begin{equation*}
 v_ab = \frac{dW_ab}{dq}\quad[\frac{J}{C} = V]
 \end{equation*}
@@ -234,8 +233,12 @@ P = \frac{dW}{dt}
 - If Power is positive, it means the element is absorbing energy and if it is negative it is generating energy.
 - In a lumped circuit, the net power is 0 (conservation of energy). In non-lumped energy would be leaked via radiation.
 
-* Worked Examples
+To figure out the amout of work done over time, or the energy used over time
+\begin{equation*}
+W = \int_{t1}^{t2}P(t) \, dt
+\end{equation*}
 
+* Worked Examples
 ** Example: DESCRIPTION
 
 *Given:* ...
@@ -245,14 +248,11 @@ P = \frac{dW}{dt}
 *Solution:*
 
 * Questions & Gaps
-
 ** TODO Revisit: ...
 
 * Summary
-
-- ...
-- ...
-
-* References
-
-- [[file:NN.org::*Heading][Lecture NN — Relevant heading]]
+- Maxwell's equations define electric behaviour
+- When the dimensions of the circuit are much smaller than the wavelength, we call this a lumped circuit and can simplify Maxwell's equations
+- Circuits contain, element/branches, loops, nodes, meshes.
+- Series means two element share a node exclusively with each other, paraellel means two elements share two nodes exclusively.
+- Current is rate of flow of charge, voltage is work needed to move a charge against an E-field, Power is the rate of work per charge

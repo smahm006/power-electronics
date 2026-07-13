@@ -1,0 +1,88 @@
+#+TITLE: EE44 Lecture 002 —  Circuits Fundamental: Passivity and Activity, KCL and KVL, Ideal Sources
+#+DATE:
+#+FILETAGS: :ee44:kcl:kvl:passive:active:sources:
+#+VIDEO: https://www.youtube.com/watch?v=H00Z2qa_a0c&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z
+#+STARTUP: latexpreview
+* Key Concepts
+** Passivity vs Reactivity vs Activity
+*** Passive
+A passive element is one that from the beginning of time up to any time t, does not provide net energy. It cannot give you more energy than it was given.
+\begin{equation*}
+w(t) = \int_{-\infty}^{t} p(t) dt = \int_{-\infty}^{t} v(t) i(t) dt \ge 0 \, \text{for all t in} -\infty,\infty
+\end{equation*}
+
+- The IV curve of this element would have the graph in the first quadrant or third quadrant as the product of V x I must be positive.
+- Examples include resistors, capacitors (even though it gives energy, it cannot give more than it has absorbed so net is positive)
+*** Reactive
+Reactivity is a subset of Passivity but where there exists times where the power is negative a.k.a it is giving energy not absorbing.
+
+- Examples include capacitors
+*** Active
+An active element is one that can give you more energy than it was given.
+\begin{equation*}
+\text{There exists a time t1 such that} \, w(t_1) = \int_{-\infty}^{t_1} p(t) dt = \int_{-\infty}^{t_1} v(t) i(t) dt < 0
+\end{equation*}
+- Examples include batteries
+** Kirchhoff Current and Voltage Laws
+*** KCL
+For our last lecture we realized that for lumped circuits, Ampere-Maxwell's Law simplifies:
+\begin{equation*}
+\vec{\nabla}(\nabla \times \vec{B}) = \mu_0 \vec{\nabla}\cdot\vec{J} + \mu_0 \epsilon_0 \vec{\nabla}\cdot\frac{\partial \vec{E}}{\partial t}
+\implies \mu_0 \vec{\nabla}\cdot\vec{J} = 0
+\implies \vec{\nabla}\cdot\vec{J} = 0
+\end{equation*}
+With this we can derive that the net charge on any node is zero
+\begin{equation*}
+\sum_{m=1}^{N}{q_m(t) = 0}
+\end{equation*}
+Which also implies that the net current on any node is zero
+\begin{equation*}
+\sum_{m=1}^{N}{i_m(t) = 0}
+\end{equation*}
+And so that means the total current entering a node is equal to the total current exiting a node which is KCL
+*** KVL
+For lumped circuits, Faraday's law simplifies:
+\begin{equation*}
+\oint_C \vec{E} \cdot d\vec{l} = -\frac{d}{dt} \int_S \vec{B} \cdot d\vec{A}
+\implies \oint_C \vec{E} \cdot d\vec{l} = 0
+\end{equation*}
+And since the relationship between electric field and voltage is as follows:
+\begin{equation*}
+\Delta V = -\int d V \\ &= -\int E_{} d l
+\end{equation*}
+We can say that
+\begin{equation*}
+\Delta V = 0
+\implies \sum_{m=1}^{N}{V_m(t) = 0}
+\end{equation*}
+Which means that the net voltage around a loop is zero which is KVL.
+** Ideal Sources
+An ideal source basically means an element with zero internal resistance.
+
+*** Ideal Voltage Source
+An ideal voltage source is an element that provides a perfectly constant voltage, regardless of the amount of current drawn by the load. This voltage can be time-varying as well.
+
+- An ideal voltage source with a voltage of 0 volts is called a short circuit.
+- Two voltage sources in series can be added to become one voltage source.
+*** Ideal Current Source
+An ideal current source is an element that provide a perfectly constant current, regardless of the voltage across its terminals.
+
+- An ideal current source with a current of 0 Amperes is called an open circuit.
+- Two current sources in parallel can be added to become one current source.
+** Independent vs Dependent Sources
+Independent sources provide a fixed voltage or current unaffected by the other elements in the circuit. A dependent source is one whose voltage or current is affected or controlled by the voltage or current of another element in the circuit.
+* Derivations
+** Derivation Name
+\begin{align}
+V &= IR
+\end{align}
+* Worked Examples
+** Example: DESCRIPTION
+*Given:* ...
+*Find:* ...
+*Solution:*
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...
