@@ -1,7 +1,7 @@
-#+TITLE: EE44 Lecture 001 — Circuits Fundamentals: Definitions, graph properties, current & voltage, power & energy
+#+TITLE: EE44 Lecture 01 — Circuits Fundamentals: Definitions, graph properties, current & voltage, power & energy
 #+DATE: 2026-07-10
 #+FILETAGS: :ee44:current:voltage:energy:
-#+VIDEO: https://www.youtube.com/watch?v=i9WixHfiZPU&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z
+#+VIDEO: https://www.youtube.com/watch?v=i9WixHfiZPU&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=1
 #+STARTUP: latexpreview
 * Key Concepts
 ** Math vs Physics

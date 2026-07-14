@@ -1,0 +1,72 @@
+#+TITLE: EE44 Lecture 03 — Circuits Fundamentals: Resistance, Ohm's law, linearity, time-variance, diode circuits.
+#+DATE:
+#+FILETAGS: :ee44:resistor:ohm:diode:
+#+VIDEO: https://www.youtube.com/watch?v=hoO9Kb223rM&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=3
+#+STARTUP: latexpreview
+* Key Concepts
+** Resistance
+In nature the speed of an individual electron is ~ 10^5 m/s, and they are this fast because they are so light. But the cloud of electrons in 1C of charge (Avogadros number) for 1A is moving at roughly 10^-5 m/s, which we call drift velocity, and they are this slow because there are so many of them.
+
+Resistance (R) is a measure of how much a material opposes or slows down the flow of electric current through it.
+\begin{equation*}
+R = \rho \frac{L}{A}
+\end{equation*}
+
+Note the opposite of Resistance is Conductance (G) and we say
+\begin{equation*}
+G = \frac{1}{R}
+\end{equation*}
+** Ohms Law
+The drift velocity of the electron cloud is actually proportional to the electric Field or in other words the voltage is proportional to the current.
+\begin{equation*}
+R = \frac{V}{I} \equiv G = \frac{I}{V}
+\end{equation*}
+Which is Ohm's Law
+
+And so really what we are saying is that we can model the Voltage and Current as functions of each other
+\begin{equation*}
+i = f(v)\; \text{or}\; v = f(i)
+\end{equation*}
+
+One thing to remember is that Ohm's law is just a mathematical equation of the ideal case. In reality, if you keep increasing the voltage, the temperature of the resistance increases which can decrease or sometimes even increase the resistance.
+** Power across a resistor
+\begin{equation*}
+P = V \cdot I = Ri^2 = \frac{V^2}{R}
+\end{equation*}
+** Series vs Parallel
+If you have a bunch of resistors in series, then due to KVL you can say that
+\begin{equation*}
+V = R_1 i + R_2 i + R_3 i
+\implies V = i(R_1 + R_2 + R_3) = iR_eq
+\implies R_eq = R_1 + R_2 + R_3
+\end{equation*}
+
+If you have a bunch of resistors in parallel, then due to KCL you can say that
+\begin{equation*}
+I = \frac{V}{R_1} + \frac{V}{R_2} + \frac{V}{R_3}
+\implies I = V\left(\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}\right) = \frac{V}{R_{eq}}
+\implies \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}
+\implies G_{eq} = G_1 + G_2 + G_3
+\end{equation*}
+** Non-linearity and time variance
+As mentioned resistors don't have to be linear. We call time independent non-linearity memory less, which mean the past doesn't affect it.
+An example of a non-linear resistor is a diode.
+
+A resistor can also be time-varying.
+** Custom IV construction
+You can actually construct any kind of custom I-V graph using electrical elements. Like a diode in
+* Derivations
+** Derivation Name
+\begin{align}
+V &= IR
+\end{align}
+* Worked Examples
+** Example: DESCRIPTION
+*Given:* ...
+*Find:* ...
+*Solution:*
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...

@@ -1,7 +1,7 @@
-#+TITLE: EE44 Lecture 002 —  Circuits Fundamental: Passivity and Activity, KCL and KVL, Ideal Sources
+#+TITLE: EE44 Lecture 02 —  Circuits Fundamental: Passivity and Activity, KCL and KVL, Ideal Sources
 #+DATE:
 #+FILETAGS: :ee44:kcl:kvl:passive:active:sources:
-#+VIDEO: https://www.youtube.com/watch?v=H00Z2qa_a0c&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z
+#+VIDEO: https://www.youtube.com/watch?v=H00Z2qa_a0c&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=2
 #+STARTUP: latexpreview
 * Key Concepts
 ** Passivity vs Reactivity vs Activity
@@ -84,5 +84,7 @@ V &= IR
 * Questions & Gaps
 ** TODO Revisit: ...
 * Summary
-- ...
-- ...
+- Passive elements on net absorb energy, reactive elements are passive but also at one time have given energy and active on net have given energy
+- KCL is simplified Ampere-Maxwell's law and says current in node = current out node. KVL is simplified Faraday's law and says sum of voltages of all elements in loop is zero.
+- Ideal sources are voltage/current sources with internal zero resistance. 0V ideal source = short circuit, 0A ideal source = open circuit.
+- Dependent sources depend on voltage/current of some other element.
