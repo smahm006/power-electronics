@@ -1,5 +1,5 @@
 #+TITLE: EE44 Lecture 03 — Circuits Fundamentals: Resistance, Ohm's law, linearity, time-variance, diode circuits.
-#+DATE:
+#+DATE: 2026-07-14
 #+FILETAGS: :ee44:resistor:ohm:diode:
 #+VIDEO: https://www.youtube.com/watch?v=hoO9Kb223rM&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=3
 #+STARTUP: latexpreview
@@ -68,5 +68,8 @@ V &= IR
 * Questions & Gaps
 ** TODO Revisit: ...
 * Summary
-- ...
-- ...
+- Resistance is resistivity of material * length of material / area the material covers.
+- Ohms law relates the voltage to the current in a material.
+- Series resistors add up due to KVL and parallel resistors inversely add up due to KCL.
+- IV graphs of elements can be non-linear or memory less (time invariant) or time varying.
+- We can add elements like lego blocks to create custom IV behaviour.

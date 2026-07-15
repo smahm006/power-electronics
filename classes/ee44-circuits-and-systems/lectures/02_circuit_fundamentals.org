@@ -1,5 +1,5 @@
 #+TITLE: EE44 Lecture 02 —  Circuits Fundamental: Passivity and Activity, KCL and KVL, Ideal Sources
-#+DATE:
+#+DATE: 2026-07-13
 #+FILETAGS: :ee44:kcl:kvl:passive:active:sources:
 #+VIDEO: https://www.youtube.com/watch?v=H00Z2qa_a0c&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=2
 #+STARTUP: latexpreview

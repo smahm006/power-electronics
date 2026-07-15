@@ -1,0 +1,138 @@
+#+TITLE: EE44 Lecture 04 — Nodal Analysis: Ground, Y-Matrix, Node Voltage & Stimulus vectors, Linear Algebra, Determinant
+#+DATE: 2026-07-15
+#+FILETAGS: :ee44:nodal_analysis:node:
+#+VIDEO: https://www.youtube.com/watch?v=E6SWCh33L7U&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=4
+#+STARTUP: latexpreview
+* Key Concepts
+** Nodal Analysis
+- In nodal analysis we take circuits and turn it into a Linear Algebra problem.
+- Note analysis and design are two separate concepts.
+- It is the best but usually last resort in our arsenal of analysis techniques because it is the best and always works but I assume it's not the first thing we try.
+- Computers mainly solve electrical circuits with nodal analysis so it's important to understand.
+*** Procedure
+1. Find all nodes in circuit.
+2. Select a reference node (a.k.a ground). This is our reference potential. You want to pick the node that is most common amongst the elements.
+3. Define voltages (V_1, V_2, etc...) with respect to ground.
+4. Apply KCL to node currents expressed in terms of node voltages.
+5. Solve the resulting linear algebra equation to find the unknown voltages.
+6. Best to convert to matrix and solve the matrix.
+** Matrix
+A matrix is a linear transformation. It takes a point or vector and moves it somewhere else which can change position or rotation etc..
+
+Inverse Matrix:
+\begin{equation*}
+Y^{-1} = \frac{C^T}{\det|Y|} \; \text{where $C^T$ is the co-factor matrix and $\det$ is the determinant}
+\end{equation*}
+** Co-factor Matrix
+** Determinant
+The determinant is given a unit cube (or square in 2d or line in 1d), after applying a linear transformation on it, what is the ratio of the new shape compared to the unit cube. So we want to know how much area/volume is changed from our original unit square/cube.
+
+If the determinant is 0, what that means is we sort of crush our unit square into a line. Since the points are all on top of each other we lose information on how the original square was. This is why the inverse matrix has the determinant in the denominator, meaning if it's 0 the inverse matrix is undefined
+* Derivations
+** Inverse of 2x2 Matrix
+* Worked Examples
+** Example: 1
+*Given:*
+[[../figures/lecture4_example1_figure1.png]]
+*Find:* Nodal Analysis of circuit
+*Solution:*
+*** 1. Choose Ground
+We picked the bottom node with 4 elements sharing it to be ground.
+*** 2. Set current convention
+Sir Ali chose that the currents are all leaving the node as his standard, can choose the opposite if we wanted.
+[[../figures/lecture4_example1_figure2.png]]
+*** 3. Derive the KCL for all nodes
+\begin{align*}
+I_1 + i_1 + i_2 = 0 \\
+-I_2 - i_2 + i_3 = 0 \\
+-I_1 - i_2 - i_3 + I_2 = 0
+\end{align*}
+Notice that the third equation is just -equation1 - equation2. This is why for your ground reference you don't need to write the KCL because it's already covered by the other nodes. We could have chosen another node as ground and it's equation would be covered by the other two equations. So if you have N nodes you will get N-1 equations.
+*** 4. Express KCL in terms of node voltages
+\begin{align*}
+I_1 + G_1 V_1 + G_2 (V_1 - V_2) = 0 \\
+-I_2 - G_2 (V_1 - V_2) + G_3 V_2 = 0 \\
+\end{align*}
+*** 5. Re-order and cleanup equations
+\begin{align*}
+(G_1 + G_2)V_1 - G_2 V_2 = -I_1 \\
+-G_2 V_1 + (G_2 + G_3)V_2 =  I_2 \\
+\end{align*}
+*** 6. Re-write equations in matrix form
+\begin{pmatrix}
+g_1 + g_2 & -g_2 \\
+-g_2 & g_2 + g_3
+\end{pmatrix} \begin{pmatrix}
+v_1 \\ v_2
+\end{pmatrix} = \begin{pmatrix}
+-I_1 \\ I_2
+\end{pmatrix}
+this type of matrix is called y-matrix. y is a symbol for admittance.
+*** 7. solve the matrix
+to solve our matrix
+\begin{equation*}
+\tilde{Y} \; \vec{V} = \vec{I_{s}}
+\implies \vec{V} = \vec{I_{s}} \; \tilde{Y^{-1}} \;
+\text{where $I_s$ = stimuli current}
+\end{equation*}
+*** 8. numerical solution
+assume:
+- r_1 = 1\omega
+- r_2 = 2\omega
+- R_1 = 3\Omega
+- I_1 = 6A
+- I_2 = 4A
+
+So that means
+\begin{pmatrix}
+\frac{3}{2} & -\frac{1}{2} \\
+-\frac{1}{2} & \frac{5}{6}
+\end{pmatrix} \begin{pmatrix}
+V_1 \\ V_2
+\end{pmatrix} = \begin{pmatrix}
+-6 \\ 4
+\end{pmatrix}
+We can multiply both sides by 6 to simplify
+\begin{pmatrix}
+9 & -3 \\
+-3 & 5
+\end{pmatrix} \begin{pmatrix}
+V_1 \\ V_2
+\end{pmatrix} = \begin{pmatrix}
+-36 \\ 24
+\end{pmatrix}
+
+To solve for V we need to invert Y and the equation for that is
+\begin{equation*}
+Y^{-1} = \frac{C^T}{\det|Y|} \; \text{where $C^T$ is the co-factor matrix and $\det$ is the determinant}
+\end{equation*}
+
+And so re-arranging:
+\begin{pmatrix}
+V_1 \\ V_2
+\end{pmatrix} = \begin{pmatrix}
+-36 \\ 24
+\end{pmatrix} 1/36 \begin{pmatrix}
+5 & 3 \\
+3 & 9
+\end{pmatrix} \implies
+\begin{pmatrix}
+V_1 \\ V_2
+\end{pmatrix} = \begin{pmatrix}
+-1 \\ 24
+\end{pmatrix} \begin{pmatrix}
+5 & 3 \\
+3 & 9
+\end{pmatrix} = \begin{pmatrix}
+-3 \\ 3
+\end{pmatrix}
+
+So V_1 = -3 and V_2 = 3
+
+
+
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...
