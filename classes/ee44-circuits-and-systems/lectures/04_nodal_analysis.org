@@ -37,7 +37,7 @@ If the determinant is 0, what that means is we sort of crush our unit square int
 *Find:* Nodal Analysis of circuit
 *Solution:*
 *** 1. Choose Ground
-We picked the bottom node with 4 elements sharing it to be ground.
+We picked the bottom node with 4 elements sharing it to be ground. So we assume it has 0V.
 *** 2. Set current convention
 Sir Ali chose that the currents are all leaving the node as his standard, can choose the opposite if we wanted.
 [[../figures/lecture4_example1_figure2.png]]
@@ -58,7 +58,7 @@ I_1 + G_1 V_1 + G_2 (V_1 - V_2) = 0 \\
 (G_1 + G_2)V_1 - G_2 V_2 = -I_1 \\
 -G_2 V_1 + (G_2 + G_3)V_2 =  I_2 \\
 \end{align*}
-*** 6. Re-write equations in matrix form
+*** 6. Re-write euqations in matrix form
 \begin{pmatrix}
 g_1 + g_2 & -g_2 \\
 -g_2 & g_2 + g_3
@@ -128,8 +128,6 @@ V_1 \\ V_2
 \end{pmatrix}
 
 So V_1 = -3 and V_2 = 3
-
-
 
 * Questions & Gaps
 ** TODO Revisit: ...

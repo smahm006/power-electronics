@@ -1,0 +1,23 @@
+#+TITLE: EE44 Lecture 05 — Nodal Analysis: Examples, Dependent Sources, Existence of a Solution
+#+DATE: 2026-07-16
+#+FILETAGS: :ee44:TOPIC_TAG:
+#+VIDEO: https://www.youtube.com/watch?v=QQCYJnmbXYw&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=5
+#+STARTUP: latexpreview
+* Key Concepts
+** Nodal Analysis by inspection
+You can create the matrix of a circuit that doesn't have dependent sources just by inspection.
+The Diagonals are all the conductance's touching that node so G_1_1 = G_1 + G_2 and G_2_2 = G_2 + G_3 etc...
+The off-diagonals are the negative of the conductance between the two nodes. If the two nodes don't share any conductance it is 0.
+** Verifying existence of a solution
+To check if your circuit actually has a solution (a.k.a) your determinant is not zero, set all independent sources to be 0. If your V matrix is not 0 (a.k.a) any voltage is not exactly 0, then you cannot find a solution to your equation via nodal analysis.
+* Derivations
+* Worked Examples
+** Example: DESCRIPTION
+*Given:* ...
+*Find:* ...
+*Solution:*
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...
