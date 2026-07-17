@@ -72,10 +72,6 @@ An ideal current source is an element that provide a perfectly constant current,
 ** Independent vs Dependent Sources
 Independent sources provide a fixed voltage or current unaffected by the other elements in the circuit. A dependent source is one whose voltage or current is affected or controlled by the voltage or current of another element in the circuit.
 * Derivations
-** Derivation Name
-\begin{align}
-V &= IR
-\end{align}
 * Worked Examples
 ** Example: DESCRIPTION
 *Given:* ...

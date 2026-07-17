@@ -56,10 +56,6 @@ A resistor can also be time-varying.
 ** Custom IV construction
 You can actually construct any kind of custom I-V graph using electrical elements. Like a diode in
 * Derivations
-** Derivation Name
-\begin{align}
-V &= IR
-\end{align}
 * Worked Examples
 ** Example: DESCRIPTION
 *Given:* ...

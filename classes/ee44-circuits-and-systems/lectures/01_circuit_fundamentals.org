@@ -247,6 +247,7 @@ W = \int_{t1}^{t2}P(t) \, dt
 
 *Solution:*
 
+* Derivations
 * Questions & Gaps
 ** TODO Revisit: ...
 

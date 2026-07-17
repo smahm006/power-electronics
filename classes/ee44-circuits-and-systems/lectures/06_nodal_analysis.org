@@ -1,0 +1,57 @@
+#+TITLE: EE44 Lecture 06 — Nodal Analysis Continued: Nodal Analysis, Dependent Sources, w/ Voltage Sources, Super Nodes
+#+DATE: 2026-07-17
+#+FILETAGS: :ee44:dependent_source:super_node:
+#+VIDEO: https://www.youtube.com/watch?v=DJcvNUkzWmQ&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=6
+#+STARTUP: latexpreview
+* Key Concepts
+** Super Node
+A super node is the combination of two or more nodes. KCL will still apply to this super node due to our original assumption that assumes the speed of light is infinity and there is no charge accumulation on any node.
+* Derivations
+* Worked Examples
+** Example: 2
+*Given:*
+[[../figures/lecture6_example2_figure1.png]]
+*Find:* Nodal Analysis of circuit
+*Solution:*
+*** 1. Choose Ground
+We picked the bottom node with 4 elements sharing it to be ground. So we assume it has 0V.
+*** 2. Set current convention
+Sir Ali chose that the currents are all leaving the node as his standard, can choose the opposite if we wanted.
+*** 3. Derive the KCL for all nodes
+\begin{align*}
+i_1 + i_1 - i_y = 0 \\
+-i_1 + i_2 + i_x = 0 \\
+i_3 - i_4 - i_x = 0
+\end{align*}
+
+Hmmm we have a problem, we don't know i_x nor i_y and can't remove them completely by simplifying the equations. So now what?
+*** 4. Express node voltages in terms of voltage sources
+\begin{align*}
+v_1 = V_1
+v_2 - v_3 = V_2
+\end{align*}
+*** 5. Choose a super node to eliminate an unknown current
+If you notice in our KCL equations, we can add equation 2 to equation 3 to remove the i_x leaving us with:
+\begin{align*}
+-i_1 + i_2 + i_3 -i_4 = 0
+\implies -G_1(V_1-V_2) + G_2 V_2 + G_3 V_3 - G_4(V_1-V_3) = 0
+\end{align*}
+
+In physical terms what we actually just did was combined node 2 and node 3 into a super node and calculated the KCL for that node. By doing this we don't care anymore about the current inside the super node so we can remove i_x from the equation
+*** 6. Re-write euqations in matrix form
+Now we have three equations of the voltages so we can write our matrix as so:
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & -1 \\
+-(G_1+G_4) & G_1+G_2 & G_3+G_4
+\end{pmatrix} \begin{pmatrix}
+v_1 \\ v_2 \\ v_3
+\end{pmatrix} = \begin{pmatrix}
+V_1 \\ V_2 \\ V_3
+\end{pmatrix}
+*** 7. solve the matrix
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...
