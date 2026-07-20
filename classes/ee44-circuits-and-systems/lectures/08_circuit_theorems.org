@@ -1,0 +1,73 @@
+#+TITLE: EE44 Lecture 08 — https://www.youtube.com/watch?v=Xzbx9zTL1PA&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=11
+#+DATE: 2026-07-20
+#+FILETAGS: :ee44:theorem:thevenin:norton:superposition:source_transformation  :
+#+VIDEO: https://www.youtube.com/watch?v=Xzbx9zTL1PA&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=11
+#+STARTUP: latexpreview
+* Key Concepts
+** Design vs Analysis
+Node and Mesh analysis are useful analysis tools, and are good at proving theorems, but are not very useful for designing. And engineers are mainly responsible for design. For designing, we want to create circuits that don't exist and perform a certain function. For this, we have theorems that gives us a way to think about the process of creating.
+** How can these theorems apply to non-linear circuits?
+Many of the theorems we will learn and which are useful for design will be applicable to linear circuits (I-V graph is a straight line). But most elements in the real world are non-linear (transistors). So what we actually do is we linearize the non-linear system in a way that will make it linear around an operation point. For transistors this would be the small signal model, and this is the bases for a lot of analysis.
+** Superposition Theorem
+In a _linear system_, the overall response of multiple stimuli (even non-electrical) is the sum of the individual responses of each stimuli.
+
+So in circuit domain say you want to find the current through an element with 5 independent stimuli sources in your circuit. You can set 4 sources to zero, and one to non-zero and calculate the current through the element for that one source. Repeat the step for the other sources. At the end you will have five current and the algebraic sum of these currents will be the overall current through the element.
+
+You don't zero dependent sources because they appear in the Y matrix, not the I_stimuli matrix (look at derivation to understand).
+** Voltage and Current Divider
+[[../figures/lecture8_voltage_current_divider.png]]
+** Thevenin Theorem
+[[../figures/lecture8_thevenin_theorem.png]]
+In a _linear system_, any combination of independent sources and resistors connected to two terminals is equivalent to a single voltage source (V_thevenin or V_oc)in series with a single resistor (R_eq), as seen from the perspective of its two terminals.
+
+This is useful because Thevenin’s theorem can make analysis easy by temporarily removing the load resistance from a circuit and reducing what’s left to an equivalent circuit composed of a single voltage source and series resistance.
+
+To find I_sc you would look at the open circuit voltage across the terminals, and to find R_eq you would null all independent sources and find the resistance across the terminals.
+
+- If time varying sources exist in the system, the single voltage source will be time varying as well.
+- If capacitors or inductors exist, the resistor will convert to an equivalent impedance (frequency dependent resistor).
+** Norton Theorem
+[[../figures/lecture8_norton_theorem.png]]
+In a _linear system_, any combination of independent sources and resistors connected to two terminals is equivalent to a single current source (I_norton or I_sc)in parallel with a single resistor (R_eq), as seen from the perspective of its two terminals.
+
+This is useful because Norton’s theorem can make analysis easy by temporarily removing the load resistance from a circuit and reducing what’s left to an equivalent circuit composed of a single current source and parallel resistance.
+
+To find I_sc you would look at the short circuit current flowing through the terminals, and to find R_eq you would null all independent sources and find the resistance across the terminals.
+
+- If time varying sources exist in the system, the single current source will be time varying as well.
+- If capacitors or inductors exist, the resistor will convert to an equivalent impedance (frequency dependent resistor).
+** Source Transformation Theorem
+[[../figures/lecture8_source_transformation.png]]
+A Thevenin Equivalent circuit can be converted to a Norton Equivalent circuit.
+* Derivations
+** Superposition Theorem from Nodal Analysis
+[[../figures/lecture8_superposition_derivation.png]]
+* Worked Examples
+** Example: 1
+*Given:*
+[[../figures/lecture8_example1_figure1.png]]
+*Find:* Find i using Superposition Theorem
+*Solution:*
+*** 1. Choose independent sources to keep and null
+Choose one interdependent source and null the rest. We'll keep the 12A source and null the rest. The 8A current source becomes an open circuit and the 64V voltage source becomes a short circuit.
+*** 2. Solve the corresponding current
+[[../figures/lecture8_example1_figure2.png]]
+
+Sir Ali realized that the 8\Omega is in parallel with (4+4=8)\Omega so it's really a 4\Omega in || with 4\Omega which means that the current divides equally. Current divider says that current in any branch is
+\begin{equation*}
+i_1 = \frac{4}{4+4} * I \implies i = \frac{I}{2} \implies I = 6A
+
+And 6A was going into an 8\Omega || with 8\Omega so again it divides evenly so the current going through the branch must be 3A.
+\end{equation*}
+*** 3. Repeat step 1 and 2 for other sources
+Keeping the 8A source and nulling others we get
+[[../figures/lecture8_example1_figure3.png]]
+and
+[[../figures/lecture8_example1_figure4.png]]
+*** 4. Add the sum of individual responses
+i = i_1 + i_2 + i_3 = 3 - 5 + 2 = 0A!
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...

@@ -8,9 +8,6 @@
 ** Concept B
 * Derivations
 ** Derivation Name
-\begin{align}
-V &= IR
-\end{align}
 * Worked Examples
 ** Example: DESCRIPTION
 *Given:* ...

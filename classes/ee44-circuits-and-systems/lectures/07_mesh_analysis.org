@@ -10,10 +10,6 @@ It's the other side of the coin of nodal analysis. Instead of KCL's at nodes we 
 Weaker than nodal analysis because due to circuit topology, you may not be able to find a mesh that covers certain elements.
 ** Concept B
 * Derivations
-** Derivation Name
-\begin{align}
-V &= IR
-\end{align}
 * Worked Examples
 ** Example: 1
 *Given:*

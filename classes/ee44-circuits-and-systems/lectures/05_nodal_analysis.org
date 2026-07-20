@@ -10,6 +10,8 @@ The Diagonals are all the conductance's touching that node so G_1_1 = G_1 + G_2 
 The off-diagonals are the negative of the conductance between the two nodes. If the two nodes don't share any conductance it is 0.
 ** Verifying existence of a solution
 To check if your circuit actually has a solution (a.k.a) your determinant is not zero, set all independent sources to be 0. If your V matrix is not 0 (a.k.a) any voltage is not exactly 0, then you cannot find a solution to your equation via nodal analysis.
+** Dependent Sources (from lecture 8)
+Dependent sources are more akin to resistors than independent sources. The only difference is that a in a resistor, the voltage/current is defined in relation to the voltage/current across/through the same node. Whilst for dependent sources, the voltage/current is dependent on the voltage/current of another node.
 * Derivations
 * Worked Examples
 ** Example: DESCRIPTION
