@@ -1,0 +1,78 @@
+#+TITLE: EE44 Lecture 07 — Mesh Analysis & Diode Circuits: Mesh Analysis, 3D Networks, Super Mesh, Diode Circuit Design
+#+DATE: 2026-07-18
+#+FILETAGS: :ee44:mesh_analysis:3d:
+#+VIDEO: https://www.youtube.com/watch?v=XJ0MKFfwEUo&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=7
+#+STARTUP: latexpreview
+* Key Concepts
+** Mesh Analysis
+It's the other side of the coin of nodal analysis. Instead of KCL's at nodes we calculate KVL's at meshes.
+
+Weaker than nodal analysis because due to circuit topology, you may not be able to find a mesh that covers certain elements.
+** Concept B
+* Derivations
+** Derivation Name
+\begin{align}
+V &= IR
+\end{align}
+* Worked Examples
+** Example: 1
+*Given:*
+[[../figures/lecture7_example1_figure1.png]]
+*Find: Mesh Analysis of circuit
+*Solution:*
+*** 1. Choose a current convention
+Sir Ali chose the current going clockwise, and assumed voltage is the potential difference from + to -.
+*** 2. Derive KVL for all meshes
+\begin{align*}
+-V_1 + R_1 i_1 - R_2(i_1 - i_2) = 0 \\
+V_2 + - R_2(i_1 - i_2) + R_3 i_2 = 0
+\end{align*}
+*** 3. Re-write in matrix form
+\begin{pmatrix}
+R_1 + R_2 & -R_2 \\
+-R_2 & R_2 + R_3
+\end{pmatrix} \begin{pmatrix}
+i_1 \\ i_2
+\end{pmatrix} = \begin{pmatrix}
+V_1 \\ V_2
+\end{pmatrix}
+*** 4. solve the matrix
+to solve our matrix
+\begin{equation*}
+\tilde{Z} \; \vec{i} = \vec{V_{s}}
+\implies \vec{i} = \vec{V_{s}} \; \tilde{Z^{-1}} \;
+\text{where $Z_s$ = stimuli voltage}
+\end{equation*}
+this type of matrix is called z-matrix. z is a symbol for impedence.
+** Example: 1
+*Given:*
+[[../figures/lecture7_example2_figure1.png]]
+*Find: Mesh Analysis of circuit
+*Solution:*
+*** 1. Choose a current convention
+Sir Ali chose the current going clockwise, and assumed voltage is the potential difference from + to -.
+*** 2. Consume current source in an super mesh
+Because we don't know the voltage across I_1, we can bypass it by combining mesh 2 and 3 and taking the KVL of that loop instead.
+We can also derive I_1 as i_2 - i_3
+*** 3. Derive KVL for all meshes
+\begin{align*}
+i_2 - i_3 = I_1
+-V_1 + R_1 i_1 - R_2(i_1 - i_2) = 0 \\
+R_2(i_2-i_1) + R_3 i_2 + R_4 i_3 = 0
+\end{align*}
+*** 4. Re-write in matrix form
+\begin{pmatrix}
+1 & 0 & -1 \\
+R_1 - R_2 & R_2 & 0 \\
+-R_2 & R_2 + R_3 & R_4
+\end{pmatrix} \begin{pmatrix}
+i_1 \\ i_2 \\ i_3
+\end{pmatrix} = \begin{pmatrix}
+I_1 \\ V_1 \\ 0
+\end{pmatrix}
+*** 5. solve the matrix
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...

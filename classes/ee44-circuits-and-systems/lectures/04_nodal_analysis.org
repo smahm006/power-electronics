@@ -67,7 +67,6 @@ v_1 \\ v_2
 \end{pmatrix} = \begin{pmatrix}
 -I_1 \\ I_2
 \end{pmatrix}
-this type of matrix is called y-matrix. y is a symbol for admittance.
 *** 7. solve the matrix
 to solve our matrix
 \begin{equation*}
@@ -75,6 +74,7 @@ to solve our matrix
 \implies \vec{V} = \vec{I_{s}} \; \tilde{Y^{-1}} \;
 \text{where $I_s$ = stimuli current}
 \end{equation*}
+this type of matrix is called y-matrix. y is a symbol for admittance.
 *** 8. numerical solution
 assume:
 - r_1 = 1\omega

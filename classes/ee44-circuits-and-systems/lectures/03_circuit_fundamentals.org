@@ -54,7 +54,8 @@ An example of a non-linear resistor is a diode.
 
 A resistor can also be time-varying.
 ** Custom IV construction
-You can actually construct any kind of custom I-V graph using electrical elements. Like a diode in
+You can actually construct any kind of custom I-V graph using electrical elements.
+[[../figures/lecture3_custom_iv.png]]
 * Derivations
 * Worked Examples
 ** Example: DESCRIPTION
