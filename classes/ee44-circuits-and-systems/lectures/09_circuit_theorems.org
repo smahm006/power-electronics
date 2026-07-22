@@ -1,0 +1,42 @@
+#+TITLE: EE44 Lecture 09 — https://www.youtube.com/watch?v=Ho0thejpuoY&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=9
+#+DATE: 2026-07-21
+#+FILETAGS: :ee44:source_transportation:
+#+VIDEO: https://www.youtube.com/watch?v=Ho0thejpuoY&list=PLc7Gz02Znph_HU1I9STgC4Nv0aG_jdb8Z&index=9
+#+STARTUP: latexpreview
+* Key Concepts
+** Source Transportation Theorem
+[[../figures/lecture9_source_transportation.png]]
+** Substitution Theorem
+[[../figures/lecture9_substitution_theorem.png]]
+** Maximum Power Transfer Theorem
+Given an ideal independent voltage source in series with a known resistor R_l and an unknown resistor R_l, we should choose R_l = R_s to achieve maximum power transfer to the load.
+
+- Also called impendance matching or conjugate matching
+** Y - \Delta Conversion Theorem
+[[../figures/lecture9_y_delta.png]]
+* Derivations
+** Maximum Power Transfer Theorem
+[[../figures/lecture9_max_power_transfer_derivation.png]]
+* Worked Examples
+** Example: Source Transportation + Thevenin
+*Given:*
+[[../figures/lecture9_example1_figure1.png]]
+*Find:* the current i
+*Solution:*
+*** 1. Apply source transportation on voltage source
+On the left-hand side leads to 36V in series with 4\Omega resistor in parallel with 4\Omega.
+On the right-hand side leads to 36V in series with 3\Omega resistor in parallel with 6\Omega.
+[[../figures/lecture9_example1_figure2.png]]Ω
+*** 2. Apply Thevenin and Norton theorem to simplify further
+If we apply Thevenin equivalency to the two terminals of the 4\Omega resistor and the two terminals of the 6\Omega resistor,
+on the left we get 18V in series with 18V in series with 2\Omega and on the right we get 24V in series with 2\Omega.
+[[../figures/lecture9_example1_figure3.png]]
+*** 3. Find the unknown current
+Total voltage = 24V - 18V = 6V
+Total resistance = 2 + 2 + 2 = 6\Omega
+Unknown current = 6/6 = 1A but since 24V source is the larger one, the direction of current is coming out of the positive terminal which is in the opposite direction of the one in the example so really i = -1A.
+* Questions & Gaps
+** TODO Revisit: ...
+* Summary
+- ...
+- ...
